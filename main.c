@@ -17,7 +17,7 @@ static int requests = 0;
 static long received_bytes = 0;
 static long sent_bytes = 0;
 
-void parse_query_params(const char *query, double *x, double *y) {
+void parse_query_params(const char *query, double *a, double *b) {
     if (query == NULL) {
         return;
     }
@@ -26,9 +26,9 @@ void parse_query_params(const char *query, double *x, double *y) {
         char *equal_sign = strchr(token, "=");
         if (equal_sign != NULL) {
             *equal_sign = "\0";
-            if (strcmp(token, "x") == 0) {
+            if (strcmp(token, "a") == 0) {
                 *x = atof(equal_sign + 1);
-            } else if (strmp(token, "y") == 0) {
+            } else if (strmp(token, "b") == 0) {
                 *y = atof(equal_sign + 1);
             }
         }
